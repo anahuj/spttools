@@ -1,0 +1,737 @@
+
+===========================================================================
+
+Sections (= blocks = nodes)
+
+1000 <length> "__IdvSpt_02_" % begin of file, version ID
+1001 % end of 1000 section
+1002 % begin of 2000 and 6000 (trunk and branches)
+1003 % end of 1002
+1004 % begin of 3000 and 4000 section (leaves and leaves billboards)
+1005 % end of 1004
+1006 <int> % Leaves/Number of leaf texture maps (equals 60007)
+1007 % begin of section containing 4000
+1008 % end of 1007
+1009 % begin
+1010 % end of 1009
+1011 % begin of 5000
+1012 % end of 1011
+1014 <int> % Number of tree levels (4 = trunk, branches level 1, branches level 2, leaves; does not include roots) % XXXX includes fronds! see DefaultPalm.spt
+1015 % end of 1014
+1016 % begin of bezierspline list 6000
+1017 % end of 1016
+
+2000 <intstring> % Trunk and branches texture map % see 70000
+2001 <float> % LOD/Compute LOD/Far distance Actual value
+2002 <byte> % ??? Always = 0 in examples.
+2003 <float> % LOD/Compute LOD/Near distance Actual value
+2004 <int> % Not in v4. Always = 0 in v3 demos.
+2005 <int> % Global/Seeds/Main
+2006 <float> % Global/Size and Orientation/Size % spttest/003
+2007 <float> % Global/Size and Orientation/Size Variance
+
+3000 <float> % Leaves/Blossom Rules/Distance(%) % 100* in UI
+3001 <int> % Leaves/Blossom Rules/Depth
+3002 <float> % Leaves/Blossom Rules/Weight(%) % 100* in UI
+3003 <byte> % ???? Always = 0 in examples. % XXXX
+3004 <float> % ???? Always = -1.0 in examples. % XXXX
+3005 <float> % ???? Always = -1.0 in examples. % XXXX
+3006 <byte> % ???? Always = 0 in examples. % XXXX
+3007 <float> % Leaves/Placement/Tolerance % 100* in UI
+3008 <int> % Leaves/Placement/Collision detection % 0 None 1 Branch 2 Tree
+3009 <byte> % Lighting/Leaf Lighting/Dimming toggle % 0 off 1 on
+3010 <float> % Lighting/Leaf Lighting/Dimming(%)
+
+4000 <byte> % Make Blossom % 0 No 1 Yes
+4001 3x<float> % Leaves/Texture Maps/Color
+4002 <float> % Leaves/Texture Maps/Orientation Var(%) % ex color variance?
+4003 <intstring> % Leaves/Texture Maps/Leaf texture map filename
+4004 3x<float> % Leaves/Texture Maps/Texture Map Origin (XYZ) % yellow mark on the texture
+4005 3x<float> % Leaves/Texture Maps/Size / 100.0 % in XY % does Z have any effect?
+4006 3x<float> % ???? Matches the original value of Leaves/Texture Maps/Size (x,y,z) without division by 100. A coincidence? % XXXX
+4007 <float> % ???? % XXXX
+
+5000 3x<float>?? % = 0 in demos % XXXX
+5001 3x<float>?? % = 0 in demos % XXXX
+5002 3x<float> % XXXX
+5003 3x<float>?? % = 0 in demos % XXXX
+5004 3x<float> % XXXX
+5005 <float> % XXXX
+5006 <byte> % XXXX
+
+% Trunk, branches, and leaves. Meaning may vary depending on type.
+% See spttools/NOTES for the curve-parameter table.
+% devdiary_march_screen05B.jpg
+
+% Trunk
+6000 <length> <bezierspline> % Disturbance % 100*/100*/1* in UI % 0 100 greyed
+6001 <length> <bezierspline> % Gravity % 1*/1* UI % 0.95 0.95 0.2 no curve
+6002 <length> <bezierspline> % Flexibility % 100*/100* in UI % 0.2 0.2 0.05 nc
+6003 <length> <bezierspline> % Flexibility Profile % 100*/100*/?* 0 100 greyed
+6004 <length> <bezierspline> % Length % 100*/100* in UI % no curve
+6005 <length> <bezierspline> % Radius % 100*/100* in UI % no curve
+6006 <length> <bezierspline> % Radius Profile % 100*/100*/100* in UI % 0 100 gr
+6007 <length> <bezierspline> % Start Angle % 1*/1* in UI % no curve
+6008 <int> % Segments/Cross-section % spttest/013,035
+6009 <int> % Segments/Length % spttest/014
+6010 <float> % Branches/Generation/First % 100* in UI??
+6011 <float> % Branches/Generation/Last  Leaves/Texture Maps/color variance???
+6012 <float> % Branches/Generation/Frequency % spttest/017,036
+6013 <float> % Texture Map Tiling/U tiling % spttest/018 % ex S
+6014 <float> % Texture Map Tiling/V tiling % spttest/019 % ex T
+6015 <byte>  % Texture Map Tiling/U Abs % 0 = no abs, 1 = abs
+6016 <byte>  % Texture Map Tiling/V Abs
+6017 <length> <bezierspline> % Gravity Profile 100*/100*/?* (ex Angle Profile) % 1* % spttest/039
+Note: Generation/First+Last+Freq of branch level 1 are in 6010-12 of trunk
+Note: Generation/First+Last+Freq of leaves are in 6010-12 of the last branch level
+Note: Generation/First+Last+Freq slots of leaves are used for completely something else. Check!
+Note: Generation/First+Last+Freq of Roots are in 40003-5
+
+% Leaves
+6000 <length> <bezierspline> % NUSED Disturbance % 100*/100*/1* in UI % 0 100 greyed
+6001 <length> <bezierspline> % NUSED Gravity % 1*/1* UI % 0.95 0.95 0.2 no curve
+6002 <length> <bezierspline> % NUSED Flexibility % 100*/100* in UI % 0.2 0.2 0.05 nc
+6003 <length> <bezierspline> % NUSED Flexibility Profile % 100*/100*/?* 0 100 greyed
+6004 <length> <bezierspline> % Placement/Distance % 100*/100*/100* in UI
+6005 <length> <bezierspline> % NUSED Radius % 100*/100* in UI % no curve
+6006 <length> <bezierspline> % NUSED Radius Profile % 100*/100*/100* in UI % 0 100 gr
+6007 <length> <bezierspline> % NUSED Start Angle % 1*/1* in UI % no curve
+6008 <int> % ??? (Segments/Cross-section % spttest/013,035)
+6009 <int> % ??? (Segments/Length % spttest/014)
+6010 <float> % Branch generation/First % 100* in UI??
+6011 <float> % Branch generation/Last  Leaves/Texture Maps/color variance???
+6012 <float> % Branch generation/Frequency % spttest/017,036
+6013 <float> % Texture Map Tiling/U tiling % spttest/018 % ex S
+6014 <float> % Texture Map Tiling/V tiling % spttest/019 % ex T
+6015 <byte>  % Texture Map Tiling/U Abs % 0 = no abs, 1 = abs
+6016 <byte>  % Texture Map Tiling/V Abs
+6017 <length> <bezierspline> % Gravity Profile 100*/100*/?* (ex Angle Profile) % 1* % spttest/039
+
+% Fronds (DefaultPalm.spt) Where these values are entered?
+6000 <length> <bezierspline> % Disturbance % 100*/100*/1* in UI % 0 100 greyed
+6001 <length> <bezierspline> % Gravity % 1*/1* UI % 0.95 0.95 0.2 no curve
+6002 <length> <bezierspline> % Flexibility % 100*/100* in UI % 0.2 0.2 0.05 nc
+6003 <length> <bezierspline> % Flexibility Profile % 100*/100*/?* 0 100 greyed
+6004 <length> <bezierspline> % Length % 100*/100* in UI % no curve
+6005 <length> <bezierspline> % Radius % 100*/100* in UI % no curve
+6006 <length> <bezierspline> % Radius Profile % 100*/100*/100* in UI % 0 100 gr
+6007 <length> <bezierspline> % Start Angle % 1*/1* in UI % no curve
+6008 <int> % Segments/Cross-section % spttest/013,035
+6009 <int> % Segments/Length % spttest/014
+6010 <float> % Branches/Generation/First % 100* in UI??
+6011 <float> % Branches/Generation/Last  Leaves/Texture Maps/color variance???
+6012 <float> % Branches/Generation/Frequency % spttest/017,036
+6013 <float> % Texture Map Tiling/U tiling % spttest/018 % ex S
+6014 <float> % Texture Map Tiling/V tiling % spttest/019 % ex T
+6015 <byte>  % Texture Map Tiling/U Abs % 0 = no abs, 1 = abs
+6016 <byte>  % Texture Map Tiling/V Abs
+6017 <length> <bezierspline> % Gravity Profile 100*/100*/?* (ex Angle Profile) % 1* % spttest/039
+
+
+% Original: Trunk+Branches+Leaves
+6000 <length> <bezierspline> % Trunk+Branches/Disturbance % 100*/100*/1* in UI
+6001 <length> <bezierspline> % Trunk+Branches/Gravity % 1* UI
+6002 <length> <bezierspline> % Trunk+Branches/Flexibility % 100* in UI
+6003 <length> <bezierspline> % Trunk+Branches/Flexibility Profile
+6004 <length> <bezierspline> % Trunk+Branches/Length +  Leaves/Distance % 100* in UI
+6005 <length> <bezierspline> % Trunk+Branches/Radius % 100* in UI % but why branches started higher and had more branches at top % spttest/048
+6006 <length> <bezierspline> % Trunk+Branches/Radius Profile % 100* in UI % spttest/011
+6007 <length> <bezierspline> % Trunk+Branches/Start Angle % 1* in UI % spttest/029-32
+6008 <int> % Trunk/Segments/Cross-section % spttest/013,035
+6009 <int> % Trunk/Segments/Length % spttest/014
+6010 <float> % Trunk/Branch generation/First % 100* in UI??
+6011 <float> % Trunk/Branch generation/Last  Leaves/Texture Maps/color variance???
+6012 <float> % Trunk/Branch generation/Frequency % spttest/017,036
+6013 <float> % Trunk/Texture Map Tiling/s-coord % spttest/018
+6014 <float> % Trunk/Texture Map Tiling/t-coord % spttest/019
+6015 <byte> % Trunk/Texture Map Tiling/s-coord/Abs % 0 = no abs, 1 = abs
+6016 <byte> % Trunk/Texture Map Tiling/t-coord/Abs
+6017 <length> <bezierspline> % Trunk+Branches/Angle Profile % 1* % spttest/039
+
+7000 % begin
+7001 % end
+
+8000 % begin of ?
+8001 % end of 8000
+8002 <int> % Lighting/Branch Lighting/Lighting style % 0 Dynamic 1 Static
+8003 4x3x<float> <float> % Lighting/Materials/Branches/DiffuseColor AmbientColor SpecularColor EmissiveColor Shine
+8004 <int> % Lighting/Leaf Lighting/Lighting style % 0 Dynamic 1 Static
+8005 4x3x<float> <float> % Lighting/Materials/Leaves/DiffuseColor AmbientColor SpecularColor EmissiveColor Shine
+8006 <float> % Lighting/Leaf Lighting/Lighting Adjust
+8007 <int> % Lighting/Leaf Lighting/Static lighting style + Simulate shadows % 0x0 Basic + Off 0x1 Use light sources + Off 0x2 Basic + On 0x3 Use light sources + On
+8008 <int> % Lighting/Frond Lighting/Lighting style % 0 Dynamic 1 Static
+8009 4x3x<float> <float> % Lighting/Materials/Fronds/DiffuseColor AmbientColor SpecularColor EmissiveColor Shine
+
+9000 % begin of ? % LOD
+9001 % end of ?
+9002 <int> % LOD/LeavesBillboard/Transition method % 0 Pop 1 Smooth 3 None
+9003 <float> % LOD/LeavesBillboard/Radius
+9004 <float> % LOD/LeavesBillboard/Exponent
+9005 % begin of ????
+9006 % end of ????
+9007 <int> % LOD/Branches/Num LODs
+9008 <float> % LOD/Branches/Min vol(%) % 100* in UI
+9009 <float> % LOD/LeavesBillboard/Size(%) % 100* in UI
+9010 <float> % LOD/LeavesBillboard/Reduction(%) % 100* in UI
+9011 <int> % LOD/LeavesBillboard/Num LODs
+9012 <float> % LOD/Branches/Max vol(%) % 100* in UI
+9013 <float> % LOD/Branches/Fuzziness(%) % 100* in UI
+9014 <float> % LOD/Branches/Retention(%) % 100* in UI
+
+10000 % begin of composite map texture coordinates?
+10001 % end
+10002 <int N> 8x<float>*N % Composite map/Texture quads for leaves
+10003 <int N> 8x<float>*N % Composite map/Texture quads for 360 deg billboards
+10004 <int N> 8x<float>*N % Composite map/Texture quads for fronds
+
+11000 % begin
+11001 % end
+11002 <int> % Wind/Branch Weighting Level/First level receiving wind effects
+
+12000 % begin of collision objects
+12001 % end
+12002 4x<float> % Collision Object/Sphere: XYZ position, Radius
+12003 5x<float> % Collision Object/Capsule: XYZ position, Radius, Length
+12004 6x<float> % Collision Object/Box: XYZ extend 1, XYZ extend 2 (nearly XYZ Min XYZ Max)
+
+13000 % begin of fronds system
+13001 % end
+13002 <int> % Fronds/Generation/Level
+13003 <int> % Fronds/Blades+ExtrudedProfile toggle % 0 Blades 1 Extruded Profile
+13004 <int> % Fronds/Blades/Number of blades per frond
+13005 <intstring> % Bezier % Fronds/Extruded Profile/Profile
+13006 <int> % Fronds/Extruded Profile/Segments + 1
+13007 <byte> % Fronds/Generation/Enabled
+13008 <int> % Fronds/Number of frond texture maps % equals 60008
+13009 <int> % LOD/Fronds/Num LODs
+13010 <float> % LOD/Fronds/Max area(%) % 100* in UI
+13011 <float> % LOD/Fronds/Min area(%) % 100* in UI
+13012 <float> % LOD/Fronds/Fuzziness(%) % 100* in UI
+13013 <float> % LOD/Fronds/Retention(%) % 100* in UI
+
+14000 % begin of frond map
+14001 % end
+14002 <intstring> % Fronds/Texture Maps/Frond texture map filename
+14003 <float> % ???? % XXXX
+14004 <float> % Fronds/Texture Maps/Frond size factor
+14005 <float> % Fronds/Texture Maps/Min offset angle
+14006 <float> % Fronds/Texture Maps/Max offset angle
+14007 <int> % LOD/Fronds/Minimum extrusion segments/Length
+14008 <int> % LOD/Fronds/Minimum extrusion segments/Profile
+Note: 14007 and 14008 are outside the block.
+
+15000 % begin of ?
+15001 % end of ?
+% number of blocks 15002-15003 is given by 1014?
+% as many as 6000 sections
+15002 <byte> % Trunk/Texture Map Tiling/Random V offset % ex Random offset % see 50009
+15003 <float> % Trunk/Texture Map Tiling/Twist % see 50008
+
+16000
+16001
+% number of blocks 16002-16012 is given by 1014 + 1 (roots) but begin section 16000 may not exist
+% For leaves (previous of the last), the meaning may be different.
+
+16013 <int> % Global/Seeds/Flare % outside of 16000 block
+16014 <float> % LOD/LeavesBillboards/Leaf transition(%) / 2.0 % outside of 16000 block
+
+% Trunk, Branches, Roots
+16002 <float> Segments/Pack % ex Flares/Vertex Packing/Exponent
+16003 <int>   Flares/Flare Parameters/Number
+16004 <float> Flares/Flare Parameters/Balance
+16005 <float> Flares/Flare Parameters/Radial influence
+16006 <float> Flares/Flare Parameters/Radial influence variance
+16007 <float> Flares/Flare Parameters/Radial exponent
+16008 <float> Flares/Flare Parameters/Radial distance
+16009 <float> Flares/Flare Parameters/Radial distance variance
+16010 <float> Flares/Flare Parameters/Length distance
+16011 <float> Flares/Flare Parameters/Length distance variance
+16012 <float> Flares/Flare Parameters/Length exponent
+
+% Leaves % XXXX does this exists for leaves??
+16002 <float> Segments/Pack % ex Flares/Vertex Packing/Exponent
+16003 <int>   Flares/Flare Parameters/Number
+16004 <float> Flares/Flare Parameters/Balance
+16005 <float> Flares/Flare Parameters/Radial influence
+16006 <float> Flares/Flare Parameters/Radial influence variance
+16007 <float> Flares/Flare Parameters/Radial exponent
+16008 <float> Flares/Flare Parameters/Radial distance
+16009 <float> Flares/Flare Parameters/Radial distance variance
+16010 <float> Flares/Flare Parameters/Length distance
+16011 <float> Flares/Flare Parameters/Length distance variance
+16012 <float> Flares/Flare Parameters/Length exponent
+
+18000 % shadow or selfshadow, or both?
+18001
+18002 3x<float> % ???? % XXXX % shadow projection matrix? or Camera, Light, or Custom position in the self-shadow export window
+18003 3x<float> % ???? % XXXX
+18004 3x<float> % ???? % XXXX
+18005 <intstring> % Global/Self-shadow map filename
+
+19000 % shadow related?
+19001
+19002 <int>?? / <float>?? % example trees have the value = 0 % when this section is missing, what else is missing? % XXXX
+
+20000
+20001
+20002 <intstring> % Global/Composite map filename
+20003 <byte> % ???? % XXXX
+20004 <byte> % ???? % XXXX
+20005 8x<float> % texture coordinate pairs, ccw quad % XXXX
+
+21000 <float> % Wind/SpeedWind Support/Leaf rock angle scalar
+21001 <float> % Wind/SpeedWind Support/Leaf rustle angle scalar
+
+22000 <byte> % Wind/Branch Weighting Level/Propagate flexibility to higher levels
+
+23002 <float> % ???? % XXXX
+23003 <float> % ???? % XXXX
+
+25000
+25001
+25002 <float> % Fronds/Generation/Rules/Distance(%) % 100* in UI
+25003 <int> % Fronds/Generation/Rules/Depth
+25004 <int> % Fronds/Generation/Rules/Above condition % 0 Enabled 1 Disabled 2 Pruned
+25005 <int> % Fronds/Generation/Rules/Below condition % 0 Enabled 1 Disabled 2 Pruned
+25006 <int> % Fronds/Length Segment Override/Value
+25007 <byte> % Fronds/Length Segment Override/Enabled
+
+26000
+26001
+26002 % begin of
+26003 % end of
+26004 <float> % Roughness/Amount % 100* in UI
+26005 <float> % Segments/Keep% (Length) % 100* in UI
+26006 <float> % Segments/Keep% (Cross-section) % 100* in UI
+26007 <float> % Generation/Dist(%)
+26008 <int> % Generation/Depth
+26009 <byte> % Fork
+26010 <float> % Fork/Bias
+26011 <float> % Fork/Angle
+26012 <int> % Fork/Limit
+26013 <intstring> % Bezier % Segments/Profile curve % Cross-sectional segment profile
+26014 <intstring> % Bezier % Light Seam Reduction/Normal Profile curve
+26015 <float> % Roughness/Vert freq
+26016 <float> % Roughness/Horiz freq
+26017 <float> % Roughness/Amount Variance % 100* in UI
+26018 <intstring> % Bezier % Roughness/Rough profile
+26019 <intstring> % Bezier % Generation/Profile (Freq profile)
+26020 <intstring> % Bezier % Light Seam Reduction/Bias
+26021 <float> % Gnarl
+26022 <intstring> % Bezier % Roughness/Gnarl profile
+26023 <byte> % Roughness/Unison % 0 off 1 on
+Note: Trunk does not have Roughness/Unison
+Note: Trunk does not have Light Seam Reduction/Bias curve
+Note: Fork/Bias+Angle+Limit of Branch Level 1 are at Trunk's 26000
+Note: Generation Profile curve of Branch Level 1 is at Trunk's 26000
+
+27000 % begin
+27001 % end
+27002 <byte>  % Global/Floor toggle
+27003 <float> % Global/Floor/Value
+27004 <int> % Global/Floor/Level
+27005 <float> % Global/Floor/Exponent
+27006 <float> % 1.0 - Global/Floor/Bias
+
+28000 % begin
+28001 % end
+28002 <byte> % Lighting/Leaf Lighting/Smoothing toggle % 0 off 1 on
+28003 <float> % Lighting/Leaf Lighting/Smoothing
+28004 <int> % Lighting/Leaf Lighting/Dimming depth
+
+29000 % begin
+29001 % end
+29002 <int> % Global/Cluster Support/First level with visible branches
+
+30000 % begin
+30001 % end
+30002 <float> % Lighting/Standard Shaders/3D light/Branch
+30003 <float> % Lighting/Standard Shaders/3D light/Frond
+30004 <float> % Lighting/Standard Shaders/3D light/Leaf
+30005 <float> % Lighting/Standard Shaders/3D light/Global
+30006 <float> % Lighting/Standard Shaders/3D light/Ambient
+30007 <float> % Lighting/Standard Shaders/Billboard light/Dark side
+30008 <float> % Lighting/Standard Shaders/Billboard light/Ambient
+30009 <float> % Lighting/Standard Shaders/Billboard light/Bright side
+
+40000 % Roots
+40001
+40002 <int> % Root Level
+40003 <float> % Roots/Generation/First
+40004 <float> % Roots/Generation/Last
+40005 <float> % Roots/Generation/Freq
+40006 % begins the 1016 6000 *** 6017 1017 section
+40007 % end of 40006, begin of sections 1500* 160** 2300* 260**
+40008 % end of 40007
+
+50000 % Texture Coordinates for all layers: trunk, branches, leaves, roots.
+% Leaves section maybe is not used.
+50001
+50002 % Begin of layer
+50003 % End of layer
+50004 <float> % U tiling
+50005 <float> % V tiling
+50006 <byte> % U Absolute
+50007 <byte> % V Absolute
+50008 <float> % Twist
+50009 <byte> % Random V offset
+50010 <float> % V offset
+50011 <byte> % Clamp U
+50012 <byte> % Clamp V
+50013 <float> % Left
+50014 <float> % Right
+50015 <float> % Bottom
+50016 <float> % Top
+50017 <float> % U offset
+50018 <byte> % Sync tex coords to diffuse layer / Sync to diffuse (0 off 1 on)
+
+60000 % begin
+60001 % end
+60002 % Begin of trunk+branches texture map layers % 70000
+60003 % Begin of leaves texture map layers
+60004 % Begin of fronds texture map layers
+60005 % Begin of composite map layers (leaves+fronds)
+60006 <intstring> % Global/Self-shadow map filename
+60007 <int> % Leaves/Number of leaf texture maps (equals 1006)
+60008 <int> % Fronds/Number of frond texture maps (equals 13008)
+60009 % Begin of separate billboards map layers
+
+70000 % Map layers.
+70001
+70002 % Diffuse map filename
+70003 % Detail map filename
+70004 % Normal map filename
+70005 % Height map filename
+70006 % Specular map filename
+70007 % User 1 map filename
+70008 % User 2 map filename
+
+71000 % Leaves Mesh
+71001 <int> % Leaves/Use Mesh/Number of leaf meshes
+71002 % begin of a leaf mesh
+71003 <intstring> % Leaves/Mesh/Mesh Name
+71004 <int> % Leaves/Mesh/Number of vertices
+71005 % begin of vertex
+71006 <float> <float> <float> % Leaves/Mesh/Vertex/Position
+71007 <float> <float> <float> % Leaves/Mesh/Vertex/Normal
+71008 <float> <float> <float> % Leaves/Mesh/Vertex/Tangent
+71009 <float> <float> <float> % Leaves/Mesh/Vertex/Binormal (?Bitangent/Cotangent?)
+71010 <float> <float> % Leaves/Mesh/Vertex/UV coordinates
+71011 % end of vertex
+71012 <int> % Leaves/Mesh/Triangle Table/Number of vertex indices % 6 triangles = 6*3 indices = 18 indices
+71013 <int> % Leaves/Mesh/Triangle Table/Index
+71014 end of the leaf mesh
+71015 end of the set of leaf meshes
+Note: Normal, Tangent, and Binormal places need to be verified.
+
+72000
+72001 <byte> % Leaves/Use Mesh toggle
+72002 % Not exists in the example trees.
+72003 <int> % Leaves/Use mesh/Number of the selected mesh
+72004 % End of
+72005 <float> % Leaves/Texture Maps/Hang(%) % 100* in UI
+72006 <float> % Leaves/Texture Maps/Rotate
+
+73000
+73001
+73002 % Begin of capsule
+73003 % End of capsule
+73004 <float> % Collision Object/Capsule/X angle
+73005 <float> % Collision Object/Capsule/Y angle
+73006 <float> % Collision Object/Capsule/Z angle
+Note: Angle X Y Z = 0 0 60 means up.
+Note: Must be in the same order than the capsules in section 12000.
+
+74000
+74001
+74002 <float> % Global/Size and Orientation/Angle
+
+75000
+75001
+75002 <float> % LOD/Branches/Fade distance
+75003 <float> % LOD/Fronds/Fade distance
+75004 <byte> % LOD/Fronds/Apply fading to extruded fronds
+75005 <float> % LOD/LeavesBillboards/Billboard transition(%) / 2.0
+
+===========================================================================
+
+Notes:
+
+Compute LOD setting is not stored in spt.
+In a test, the Near and Far values were changed lightly.
+Is parity of 4th decimal used to mark if they were computed
+or manually adjusted?
+
+Lighting/Materials/Opacity is not stored in spt.
+The opacity value changed back when the material window was
+closed.
+Verify: The opacityness was not reflected to the lighting tab.
+
+Lighting/Materials/Group etc. are not saved to spt file.
+In the test, the values were reset when the window was closed.
+
+Leaves/Apply to all is not saved to spt file.
+
+Lighting/Use standard SpeedTree shaders is not saved to spt file.
+
+Movement of the light source is not saved to spt file.
+
+LOD/Manual LOD/Show LOD indicator is not saved to spt file.
+LOD/Manual LOD/Show second tree is not saved to spt file.
+
+Wind/Enabled is not saved to spt file.
+Wind/Enabled/Windy leaves is not saved to spt file.
+Wind/Enabled/Windy branches is not saved to spt file.
+Wind/SpeedWind Support/Default to custom SpeedWind file is not saved to spt file.
+Wind/SpeedWind Support/SpeedWind file is not saved to spt file.
+
+Leaf optimize tool changed:
+ section = 6012
+-float = 150.0000000000000000
++float = 39.0243530273437500
+ desc = "Branches/Generation/Frequency"
+Second 6012 in the file; that is leaves.
+cat zTestConiferLeafoptimizetool70.spt.parsed |grep -A 2 "section = 6012"
+section = 6012
+float = 200.0000000000000000
+desc = "Branches/Generation/Frequency"
+section = 6012
+float = 39.0243530273437500
+desc = "Branches/Generation/Frequency"
+section = 6012
+float = 0.0000000000000000
+desc = "Branches/Generation/Frequency"
+section = 6012
+float = 0.0000000000000000
+desc = "Branches/Generation/Frequency"
+
+Leaf optimize tool/Percentage of leaves kept is not saved to spt file.
+
+
+===========================================================================
+
+check later
+Cluster tool expanded the spt greatly.
+The tool moved the tree trunk and branches to higher branches
+levels and created invisible new trunk and new first branch level.
+Clever. Verify details.
+
+diff zDefaultConifer.spt.parsed zTestConiferClustertool.spt.parsed
+
+===========================================================================
+
+Order in file and hierarchy:
+
+1000
+  1002
+    2000 2001 2002 2003 2005 2006 2004 2007
+    1014
+    1016 % blocks 1016 6000 ... 6017 1017 as many times as is given in 1014
+         % 1014 = 4: trunk,branches,branches,leaves
+      6000 6001 6002 6003 6004 6005 6006 6007 6008 6009 6010 6011 6012 6013 6014 6015 6016 6017
+    1017
+    ***
+    1015
+  1003
+  1004
+    3000 3001 3002 3003 3004 3009 3010 3005 3006 3007 3008
+    1009
+      1006
+      1007 % 1007 4000 ... 4007 1008 as many times as given in 1006
+        4000 4001 4002 4003 4004 4005 4006 4007
+      1008
+      ***
+    1010
+  1005
+  1011
+    5000 5001 5002 5003 5004 5005 5006
+  1012
+1001
+8000
+  8002 8003 8004 8005 8006 8007 8008 8009
+8001
+9000
+  9002 9003 8004 9009
+  9005
+    9007 9008 9010 9011 9012 9013 9014
+  9006
+9001
+11000
+  11002
+11001
+10000
+  10002 10003 10004
+10001
+12000
+  12003 12002 % as many times as given in ?
+12001
+13000
+  13002 13003 13004 13005 13006 13007 13009 13010 13011 13012 13013 14007 14008 13008
+  14000 % 14000-14001 as many times as given in 13008
+    14002 14003 14004 14005 14006
+  14001
+13001
+15000
+  15002 15003 % as many times as given in ???? 1014?
+15001
+16000
+  % 16002 16012 as many times as given in ???? 1014? can be 0 independently
+  16002 16003 16004 16005 16006 16007 16008 16009 16010 16011 16012
+16001
+16013 16014
+18000
+  18002 18003 18004 18005
+18001
+19000
+  19002
+19001
+20000
+  20002 20003 20004 20005
+20001
+21000 21001
+22000
+
+document 25000 and later
+
+25000
+  25003 25002 25004 --> 25007
+25001
+
+26000
+26002 % begin
+26004
+26015
+26016
+26017
+26005 --> 26014
+26018
+26019
+26020
+26022
+26021
+26023
+26003 % end
+26002 --> 26003 % 4 times, matches what?
+26002 --> 26003
+26002 --> 26003
+26001
+
+27000
+27002
+27003
+27004
+27005
+27006
+27001
+
+28000
+28002
+28003
+28004
+28001
+
+29000
+29002
+29001
+
+30000
+30002 --> 30009
+30001
+
+40000 % Roots.
+40002 --> 40005
+40006 % begin
+1016
+6000 --> 6017
+1017
+40007 % end
+15003
+15002
+16002 --> 16012
+23002 23003
+26004
+26015 26016 26017
+26005 --> 26014
+26018 26019 26020
+26022
+26021
+26023
+40008 % end
+40001
+
+50000
+50002 % begin
+50004 --> 50007
+50009
+50008
+50010
+50017
+50011 --> 50016
+50018
+50003 % end
+50002 --> 50003 % 35 times, including the above % val1014 * 7 texture layers 
+50001
+
+% Count occurences of 50002: 28 35 42 49.
+% The difference is 7: 4*7 5*7 6*7 7*7.
+% What is in section 50000?
+
+60000
+  60002
+    70000 70002 --> 70008 70001
+  60003
+  60007
+    70000 70002 --> 70008 70001
+    70000 70002 --> 70008 70001
+  60004 % Fronds/Texture Maps
+  60008 % Number of Frond Texture Maps
+    70000 70002 --> 70008 70001 % as many as given in 60008
+  60005 % Global/Composite Maps
+    70000 70002 --> 70008 70001
+  60009 % Global/Separate Billboard Maps
+    70000 70002 --> 70008 70001
+  60006 % string?
+60001
+
+71000
+71001 % int 2 % numbers are examples only, not exact
+71002 % begin
+71003
+71004 % int 9
+71005 % begin
+71006 --> 71010
+71011 % end
+71005 --> 71011 % 9 times, including above
+71012 % int 15
+71013 % 15 times
+71014 % end
+71002 --> 71014 % 2 times, including above
+71015
+
+72000
+7000 % begin
+72001
+72003
+72005
+72006
+7001 % end
+7000 --> 7001 % 2 times, including above
+72004
+
+73000
+73002 % begin
+73004 73005 73006
+73003 % end
+73002 --> 73003 % 3 times, including above
+73001
+
+74000
+74002
+74001
+
+75000
+75002 --> 75005
+75001
+
+
+===========================================================================

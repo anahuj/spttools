@@ -1,0 +1,329 @@
+
+SpeedTreeCAD v. 3.3
+
+Tree properties
+===============
+
+Trunk
+-----
+
+Texture / shown as image % ok 20081116
+Length / value variance % 80 5 % ok 20081116
+Radius / value variance % 4 0.15 % ok 20081116
+Start angle / value variance % -90 0 % ok 20081116
+Flexibility / value variance % 65 10 % ok 20081116
+Gravity / value variance % 0 0 % ok 20081116
+Radius Profile / curve % 0 100 0 % ok 20081116
+Flexibility Profile / curve % 0 100 0 % ok 20081116
+Disturbance / curve % 0 100 15 % ok 20081116
+Angle Profile / curve % 0 100 0 % ok 20081116 gravity profile
+Segments:
+  Length / value % 14 % ok 20081116
+  Cross-section / value % 20 % ok 20081116
+Texture Map Tiling:
+  s-coord / value toggle % 3 on % ok 20081116
+  t-coord / value toggle % 6 off % ok 20081116
+  Twist / value % 2
+  Random offset / toggle % off
+Branch Generation:
+  First / value % 30 % ok 20081116
+  Last / value % 100 % ok 20081116
+  Frequency / value % 45 % ok 20081116
+
+
+Branches
+--------
+
+Level / selector % Level 1
+Level control / menu
+Length / curve % 20 40 5 % ok 20081116
+Radius / curve % 0.8 1.7 0.3 % ok 20081116
+Start Angle / curve % 25 60 10 % ok 20081116
+Flexibility / curve % 40 60 0 % ok 20081116
+Gravity / curve % 0.5 0.8 0.05 % ok 20081116
+Disturbance / curve % 0 100 60 % ok 20081116
+Radius Profile / curve % 0 100 0 % ok 20081116
+Flexibility Profile / curve % 0 100 0 % ok 20081116
+Angle Profile / curve % 0 100 0 % ok 20081116
+Segments:
+  Cross-section / value % 4 % ok 20081116
+  Length / value % 5 % ok 20081116
+Texture Map Tiling:
+  s-coord / value toggle % 2 on % ok 20081116
+  t-coord / value toggle % 7 off % ok 20081116
+  Twist / value % 2
+  Random offset / toggle % on
+Branch Generation:
+  First / value % 30 % ok 20081116
+  Last / value % 85 % ok 20081116
+  Frequency / value % 10 % ok 20081116
+
+
+Leaves
+------
+
+Texture Maps:
+  Texture no / selector % 1
+  Add, Delete buttons
+  Leaves texture as image % ok 20081116
+  Blossom / toggle % off % ok 20081116
+  Apply to All Leaves: / button
+    Leaf size / value % 8 % ok 20081116
+    Color / selector % white? % ok 20081116
+    Color variance (%) / value % 20 % XXXX 20081116
+Distance / curve % 1 5 2 % ok 20081116 6004
+Placement:
+  Collision detection / selector % Tree % ok 20081116
+  Tolerance (%) / value % 65 % ok 20081116
+Blossoms:
+  Distance (%) / value % 75 % ok 20081116
+  Weighting (%) / value % 80 % ok 20081116
+  Depth (blossom and dimming) / value % 1 % ok 20081116
+
+Lighting
+--------
+
+Materials:
+  Branches // ambient,diffuse,specular,emissive,shininess,opacity / or preset % ok 20081116
+  Leaves // ambient,diffuse,specular,emissive,shininess,opacity / or preset % ok 20081116
+  Fronds // ambient,diffuse,specular,emissive,shininess,opacity / or preset % ok 20081116
+Branch Lighting:
+  Lighting style / selector % Dynamic % ok 20081116
+Leaf Lighting:
+  Lighting style / selector % Dynamic % ok 20081116
+  Static lighting style / selector % Basic % ok 20081116
+  Simulate shadows / toggle % ok 20081116
+  Leaf lighting adjustment / value % 0.25 % ok 20081116
+  Dimming (%) / toggle value % on 45 % ok 20081116
+Frond Lighting:
+  Lighting style / selector % Dynamic % ok 20081116
+
+
+Global
+------
+
+Seeds:
+  Main seed, Randomize / value toggle % 913654 off % ok 20081116
+  Flare seed, Randomize / value toggle % 15090 off % ok 20081116
+Size:
+  Size / value % 85 % ok 20081116
+  Size variance / value % 10 % ok 20081116
+Triangles: // this is an info display
+  Branch triangles (highest LOD): 2,790
+  Leaf triangles (highest LOD): 532
+  Frond triangles (highest LOD): 674
+  Total triangles (highest LOD): 3,996
+Bounding Box:
+  Minimum x,y,z / value value value % -36.551 -34.1135 -0.0002
+  Maximum x,y,z / value value value % 40.1718 40.9396 85.4578
+
+Wind
+----
+
+Enabled: / toggle % off
+  Windy leaves / toggle % on
+  Windy branches / toggle % on
+Leaf Oscillation Factors:
+  Degrees traversed in max wind / value % 20 % XXXX 20081116
+  Frequency of rocking in max wind / value % 0.3 % XXXX 20081116
+Branch Weighting Level:
+  Level receiving wind effects / value % 1 % ok 20081116
+
+
+LOD
+---
+
+Leaves/Billboard:
+  Transition method / selector % Smooth 1 % ok 20081116
+  Num LODs / value % 3 % ok 20081116
+  Size (%) / value % 45 % ok 20081116
+  Exponent / value % 1 % ok 20081116
+  Radius / value % 0.09 % ok 20081116
+  Transition (%) / value % 30 % XXXX 20081116
+  Reduction (%) / value % 25 % ok 20081116
+Branches:
+  Num LODs / value % 3 % ok 20081116
+  Fuzziness (%) / value % 0 % ok 20081116
+  Min vol (%) / value % 30 % ok 20081116
+  Max vol (%) / value % 100 % ok 20081116
+  Retention (%) / value % 0 % ok 20081116
+Fronds:
+  Num LODs / value % 3 % ok 20081116
+  Fuzziness (%) / value % 100 % ok 20081116
+  Min area (%) / value % 25 % ok 20081116
+  Max area (%) / value % 100 % ok 20081116
+  Retention (%) / value % 5 % ok 20081116
+  Minimum extrusion segments:
+    Length / value % 3 % ok 20081116
+    Cross-section / value % 1 % ok 20081116
+Compute LOD, Manual LOD / radio buttons % Manual LOD selected
+Compute LOD:
+  Near distance: Height factor, Actual value / value value % 1.1701 100.0 % ok 20081116
+  Far distance: Height factor, Actual value / value value % 12.872 1100.0 % ok 20081116
+Manual LOD / slider (low to high) % value is at maximum high
+
+
+Fronds
+------
+
+Generation:
+  Enabled / toggle % on % ok 20081116
+  Frond level / value % 2 % ok 20081116
+Texture Maps:
+  Texture no / selector % 1
+  Add, Delete buttons
+  Frond texture as image % ok 20081116
+  Frond size factor / value % 0.9 % ok 20081116
+  Minimum offset angle / value % 15 % ok 20081116
+  Mazimum offset angle / value % 45 % ok 20081116
+Blades, Extruded Profile / radio button % Blades is selected % ok 20081116
+Blades:
+  Number of blades per frond / value % 1 % ok 20081116
+Extruded Profile:
+  Segment / value % 5 % ok 20081116
+Profile / curve % 0 100 0 // does this apply to Blades when they are selected? % ok 20081116
+
+
+Flares
+------
+
+Branch Level / selector % Level 0 (trunk)
+Vertex Packing:
+  Exponent / value % 3  (< 1 pack tip, = 1 pack linear, > 1 pack base) % ok 20081116
+Flare Parameters:
+  Number / value % 4 % ok 20081116
+  Balance / value % 0.75 % ok 20081116
+  Radial influence / value variance % 40 10 % ok 20081116
+  Radial distance / value variance % 2 0.25 % ok 20081116
+  Radial exponent / value % 0.5 % ok 20081116
+  Length distance / value variance % 0.3 0.1 % ok 20081116
+  Length exponent / value % 4 % ok 20081116
+
+
+Export Composite Leaf/Frond/Billboard Map
+=========================================
+
+SPT Files:
+  list of spt files with "Add...", "Remove", "Clear", "Copy", "Paste",
+  "Paste All"
+  Generate Billboards: / toggle % on
+    Size (pixels) / value % 156
+    Count / value % 10
+    360 Degrees / toggle % on
+    Oversampling / value (value selector) % 3
+    LOD Level / value % 1
+    Horizontal / toggle % off
+    Streak colors for <value> pixels around edges / toggle value % on 25
+  Options:
+    Copy maps to folder / toggle % on
+    Include mipmaps / toggle % off
+    Export data file / toggle % on
+    Uniform LOD noise / toggle % on
+    Texture map border / value % 3
+    Composite map filename / string % "CompositeMap"
+  Preview / image of the composition (color coded, edge type coded)
+  Composite map resolution / value value % 1024 2048
+  Configurations / menu
+  Create in Folder... / fileselector
+  Cancel / button
+
+
+Export Composite Shadow Map
+===========================
+
+SPT Files:
+  list of spt files with "Add...", "Remove", "Clear", "Copy", "Paste",
+  "Paste All"
+  Settings:
+    Size (pixels) / value % 1024
+    Density / value % 0.6
+    Oversampling / value (value menu) % 1
+  Projection Direction:
+    Camera, Light, Custom radio buttons % Light selected
+    Camera x,y,z / value value value % 0 1 0
+    Light  x,y,z / value value value % -0.4681 0.48053 -0.7415
+    Custom x,y,z / value value value % 0 0 0
+  Options:
+    Texture map border / value % 5
+    Copy maps to folder / toggle % on
+    Composite map filename / string % "CompositeShadowMap"
+  Preview / image of the composition (color coded, edge type coded)
+  Composite map resolution / value value % 1024 2048
+  Configurations / menu
+  Create in Folder... / fileselector
+  Cancel / button
+
+
+Export Self-Shadow Image
+========================
+
+Long dimension / value % 512
+Shadow density / value % 1
+Oversampling / value (value selector) % 2
+Projection Direction:
+  Camera, Light, Custom radio buttons % Camera selected
+  Camera x,y,z / value value value % 7.11684 0.99998 0.00523
+  Light  x,y,z / value value value % -0.5163 0.51752 -0.6823
+  Custom x,y,z / value value value % 1 0 0
+Choose Filename... / fileselector
+Cancel / button
+
+
+Export Image
+============
+
+Size / value % 256
+Oversampling / value (value selector) % 3
+Streak colors for <value> pixels around edges / toggle value % off 25
+Crop image with a <value> pixel border / toggle value % on 5
+Choose Filename... / fileselector
+Cancel / button
+
+
+Curve
+=====
+
+Display showing the curve, control points, and variance curves
+Add, Delete, Move tools
+Two display style toggles
+Minimum / value % 0
+Maximum / value % 100
+Variance / value % 10
+Segments / value % 2
+Curve type / selector % Custom
+Cyclical / toggle % off
+OK / button
+Cancel / button
+
+
+Embedded Texture Coordinates
+============================
+
+View / selector % Leaf Texture Coordinate
+Index / selector % 0
+Add, Remove, Copy all, Paste All / buttons
+(0.75,0.75)  (1,0.75)    / 8 x value % as shown
+Tex Coord 1  Tex Coord 0 / 4 x fixed labels
+Tex Coord 2  Tex Coord 3
+(0.75,0.625) (1,0.625)
+OK / button
+Cancel / button
+
+
+Embedded Filenames
+==================
+
+Branch Map / string % LondonPlaneBarkMipMaps.dds
+Leaf Map selector, string % Leaf map 0, LondonPlaneLeaves_1.tga
+Frond Map selector, string % Frond map 0, LondonPlaneFrondBranches.tga
+Composite Map / string % CompositeMap.tga
+Self-shadow Map / string % LondonPlaneSelfShadow.tga
+Close / button
+
+
+=============================================================
+
+
+Flares related?
+distance = (segmentno / TotalSegments)^Exponent
+

@@ -1,0 +1,70 @@
+
+sptparser and sptcompiler
+Copyright 2006-2008 Juhana Sadeharju, released under GPL
+majuko  0Oo.at.oO0  uta.fi / juhana in TES forums
+
+Usage:
+1. sptparser tree.spt > newtree.txt
+2. emacs newtree.txt (or any other text editor)
+3. sptcompiler newtree.txt > newtree.spt
+
+In this release (20081027) about all individual parameters
+have been documented. Extensive modifying of the trees is
+possible.
+
+But more documentation on the structure will be needed:
+What should be done if a branch level is added?
+A leaf map? A frond map? A collision object?
+
+Also a tool such as a composite map creator would be
+essential to have. Bezier splines are editable in the textual
+form but a graphical editor would be nice (see ngplant).
+
+
+Notes:
+
+1. Changing individual numeric values will probably work, but
+we don't know the value ranges.
+
+2. Changing the tree structure is largely unknown process. Addition of
+a new branch level requires changes in multiple places (sections 1014,
+6000, 15000, 16000 and probably in 13000 and 14000, and 26000, 50000,
+70000).
+
+3. The values listed inside { } of Bezierspline are the control points
+with the point, tangent vector, and tangent length/weight info.
+ (control point 1) x1 y1 u1 v1 w1
+ (control point 2) x2 y2 u2 v2 w2
+The first and last control points have x = 0 and x = 1 respectively.
+Other x values are in increasing order: x1 <= x2 <= ... <= xn.
+Tangent vector is a unit vector: u^2 + v^2 = 1.
+
+TODO:
+
+1. The byte and short integer numbers may have problems with
+negative numbers. E.g., -1 may be 255.
+
+2. What is a pair of printf() and scanf() which preserves the floats?
+The pair
+  printf("%f\n",f); scanf("%f\n",&f);
+won't. Now we use the pair
+  printf("%.16f\n",f); scanf("%f\n",&f);
+which prints out too many trailing zeros.
+
+3. GUI similar to SpeedTreeCAD, but without the tree generation
+and rendering. The tree generation and rendering would be of
+magnitudes harder project.
+
+4. Texture tools.
+
+5. SpeedTreeCAD clone with the tree generation and rendering.
+Hard project but would be useful for faster visual feedback.
+Now each change can be seen only by viewing the tree in the game.
+The tree generation and rendering need not be of the quality
+of SpeedTreeCAD and nor the quality of SpeedTreeRT.
+It is enough if our generated and rendered tree would look
+similar to what is generated and rendered by SpeedTree products
+in the games.
+Our editor could output NIF data and an embedded Nifskope could
+be used for rendering.
+

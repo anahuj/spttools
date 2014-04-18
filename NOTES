@@ -1,0 +1,693 @@
+
+Modify 4006 and 4007. Screenshots and saves.
+
+Continue the palm test.
+
+
+ok
+Take screenshots of
+treesugarmapleforestfa.spt
+treesugarmapleforestfa048.spt
+and compare them.
+Save both to new spt files.
+
+ok
+Last branch level of WhitePine_RT.spt has 6001: 90 90
+But so is here:
+zDefaultPalm.spt.parsed-string = "BezierSpline 90 90 0
+
+global/seeds/randomize: check if toggles and saved to file
+
+ok 20081105
+examine effects of cross-sectional segment profile curve
+in wireframe mode
+
+ok
+more collision object examples
+
+ok
+number of fronds? add more fronds
+
+not found, not available?
+map filenames window
+
+not available
+export self-shadow window;
+compare values to 18000 section;
+create trees by moving the light, exporting self-shadow
+
+ok
+shots of all menus and windows
+
+ok
+LOD/Leaves/Transition method
+Compute LOD/Manual LOD/all in there
+
+ok
+Leaves/point of rotation on the texture
+
+ok
+Lighting/Leaf Lighting/Smoothing toggle
+ dimming toggle
+ simulate shadows toggle
+Frond Lighting/Lighting style
+  all lighting styles
+Lighting/Use standard speedtree shaders
+
+ok
+Material chooser: click to browse
+
+ok
+Wind: speedwind file
+
+ok
+Lighting/Materials
+Wind/Edit
+Global/scale collision object % save the change to file
+Global/Floor % DefaultConifer has Floor on
+Modify every flat curve
+Change the values 0 and the same values.
+
+
+      4 section = 26002
+      4 section = 73002
+      5 section = 6002 % Shape definition, Texture def, Segments
+      5 section = 15002
+      5 section = 16002 % Flares
+      5 section = 70002
+
+===================================================================
+
+-Write spt library with structures.
++Separate printing from parsing.
+-check 2005, "byte short byte" may not be correct
+
+
+-Are the sections in spt files always in the same order?
+-What is the structure hiearchy, if any? Remember that 14007 and 14008
+are outside of block.
+
+The section order probably is important for sections such as 4000 and
+6000 (branches).
+
+14007 and 14008 are always present, but all others of 14000
+section may not be present. 
+
+
+ ---*---
+
+1000
+  1002
+    2000 2001 2002 2003 2005 2006 2004 2007
+    1014
+    1016 % blocks 1016 6000 ... 6017 1017 as many times as is given in 1014
+      6000 6001 6002 6003 6004 6005 6006 6007 6008 6009 6010 6011 6012 6013 6014 6015 6016 6017
+    1017
+    ***
+    1015
+  1003
+  1004
+    3000 3001 3002 3003 3004 3009 3010 3005 3006 3007 3008
+    1009
+      1006
+      1007 % 1007 4000 ... 4007 1008 as many times as given in 1006
+        4000 4001 4002 4003 4004 4005 4006 4007
+      1008
+      ***
+    1010
+  1005
+  1011
+    5000 5001 5002 5003 5004 5005 5006
+  1012
+1001
+8000
+  8002 8003 8004 8005 8006 8007 8008 8009
+8001
+9000
+  9002 9003 8004 9009
+  9005
+    9007 9008 9010 9011 9012 9013 9014
+  9006
+9001
+11000
+  11002
+11001
+10000
+  10002 10003 10004
+10001
+12000
+  12003 12002
+12001
+13000
+  13002 13003 13004 13005 13006 13007 13009 13010 13011 13012 13013 14007 14008 13008
+  14000
+    14002 14003 14004 14005 14006
+  14001
+13001
+15000
+  15002 15003 % 15002 15003 as many times as given in ???? 1014?
+15001
+16000
+  % 16002 16012 as many times as given in ???? 1014?
+  16002 16003 16004 16005 16006 16007 16008 16009 16010 16011 16012
+16001
+16013 16014
+18000
+  18002 18003 18004 18005
+18001
+19000
+  19002
+19001
+20000
+  20002 20003 20004 20005
+20001
+21000 21001
+22000
+
+ ---*---
+
+Check how many times each section occurs in the spt files:
+
+1. Check all section numbers.
+find -type f -name "*.parse" -exec grep -H "section =" \{\} \; | sed -e "s/.*section = //" | sort -n|uniq|more
+
+find -type f -name "*.parse" -exec grep -H -c "section = 20000" \{\} \; | more
+
+1000
+1
+1001
+1
+1002
+1
+1003
+1
+1004
+1
+1005
+1
+1006
+1
+1007
+1
+2
+3
+1008
+1
+2
+3
+1009
+1
+1010
+1
+1011
+1
+1012
+1
+1014
+1
+1015
+1
+1016
+3
+4
+5
+1017
+3
+4
+5
+2000
+1
+2001
+1
+2002
+1
+2003
+1
+2004
+0
+1
+2005
+1
+2006
+1
+2007
+1
+3000
+1
+3001
+1
+3002
+1
+3003
+1
+3004
+1
+3005
+1
+3006
+1
+3007
+1
+3008
+1
+3009
+1
+3010
+1
+4000
+1
+2
+3
+4001
+1
+2
+3
+4002
+1
+2
+3
+4003
+1
+2
+3
+4004
+1
+2
+3
+4005
+1
+2
+3
+4006
+1
+2
+3
+4007
+1
+2
+3
+5000
+1
+5001
+1
+5002
+1
+5003
+1
+5004
+1
+5005
+1
+5006
+1
+6000
+3
+4
+5
+6001
+3
+4
+5
+6002
+3
+4
+5
+6003
+3
+4
+5
+6004
+3
+4
+5
+6005
+3
+4
+5
+6006
+3
+4
+5
+6007
+3
+4
+5
+6008
+3
+4
+5
+6009
+3
+4
+5
+6010
+3
+4
+5
+6011
+3
+4
+5
+6012
+3
+4
+5
+6013
+3
+4
+5
+6014
+3
+4
+5
+6015
+3
+4
+5
+6016
+3
+4
+5
+6017
+3
+4
+5
+8000
+1
+8001
+1
+8002
+1
+8003
+1
+8004
+1
+8005
+1
+8006
+1
+8007
+1
+8008
+1
+8009
+1
+9000
+1
+9001
+1
+9002
+1
+9003
+1
+9004
+1
+9005
+1
+9006
+1
+9007
+1
+9008
+1
+9009
+1
+9010
+1
+9011
+1
+9012
+1
+9013
+1
+9014
+1
+10000
+1
+10001
+1
+10002
+1
+10003
+1
+10004
+1
+11000
+1
+11001
+1
+11002
+1
+12000
+0
+1
+12001
+0
+1
+12002
+0
+1
+2
+3
+12003
+0
+1
+2
+3
+4
+13000
+1
+13001
+1
+13002
+1
+13003
+1
+13004
+1
+13005
+1
+13006
+1
+13007
+1
+13008
+1
+13009
+1
+13010
+1
+13011
+1
+13012
+1
+13013
+1
+14000
+0
+1
+2
+14001
+0
+1
+2
+14002
+0
+1
+2
+14003
+0
+1
+2
+14004
+0
+1
+2
+14005
+0
+1
+2
+14006
+0
+1
+2
+14007
+1
+14008
+1
+15000
+1
+15001
+1
+15002
+3
+4
+5
+15003
+3
+4
+5
+16000
+0
+1
+16001
+0
+1
+16002
+0
+3
+4
+5
+16003
+0
+3
+4
+5
+16004
+0
+3
+4
+5
+16005
+0
+3
+4
+5
+16006
+0
+3
+4
+5
+16007
+0
+3
+4
+5
+16008
+0
+3
+4
+5
+16009
+0
+3
+4
+5
+16010
+0
+3
+4
+5
+16011
+0
+3
+4
+5
+16012
+0
+3
+4
+5
+16013
+0
+1
+16014
+0
+1
+18000
+0
+1
+18001
+0
+1
+18002
+0
+1
+18003
+0
+1
+18004
+0
+1
+18005
+0
+1
+19000
+0
+1
+19001
+0
+1
+19002
+0
+1
+20000
+0
+1
+20001
+0
+1
+20002
+0
+1
+20003
+0
+1
+20004
+0
+1
+20005
+0
+1
+21000
+0
+1
+21001
+0
+1
+22000
+0
+1
+
+ ---*---
+
+20080829
+
+                    trunk page         branches page
+
+Length              val var            val val var curve
+Radius              val var            val val var curve
+Start Angle         val var            val val var curve
+Flexibility         val var            val val var curve
+Gravity             val var            val val var curve
+Disturbance         c0 c100 var curve  c0 c100 var curve
+Radius Profile      c0 c100 var curve  c0 c100 var curve
+Flexibility Profile c0 c100 var curve  c0 c100 var curve
+Angle Profile       c0 c100 var curve  c0 c100 var curve
+
+
+treesugarmapleforrestfa.spt
+level 1 branches have curves with "0 1 val" on these:
+6000
+6003
+6006 % Radius Profile
+6017 % Angle Profile?
+
+These must be Disturbance, Radius Profile, Flexibility Profile,
+Angle Profile.
+
+Then
+6001
+6002
+6004 % Length
+6005 % Radius
+6007 % Start Angle?
+are Length, Radius, Start Angle, Flexibility, Gravity.
+
+What of these are used in the trunk?
+In trunk the following have "same same value" form:
+6001
+6002
+6004
+6005
+6007

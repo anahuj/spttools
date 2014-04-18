@@ -1,0 +1,522 @@
+
+SpeedTreeCAD v. 4.*
+
+Tree properties
+===============
+
+Trunk
+-----
+
+Shape Definition:
+  Length / value variance % 80 5
+  Radius / value variance % 4 0.15
+  Flexibility / value variance % 65 10
+  Gravity / value variance % 0 0
+  Start angle / value variance % -90 0
+  Radius Profile / curve % 0 100 0
+  Flexibility Profile / curve % 0 100 0
+  Disturbance / curve % 0 100 15
+  Gravity Profile / curve % 0 100 0
+Texture Maps and Coordinates:
+  Layer / selector % Diffuse
+  Clear this layer / button
+  Texture / shown as image
+  Texture filename / file selector % WeepingWillowBark.tga
+  Sync tex coords to diffuse layer: / toggle % on
+    U tiling / value % 5
+    Absolute [U]/ toggle % on
+    U offset / value % 0
+    V tiling / value % 2
+    Absolute [V]/ toggle % off
+    V offset / value % -0.12
+    Random V offset / toggle % on
+    Twist / value % 1.5
+    Clamp U / toggle % off
+    Left / value % 0
+    Right / value % 1
+    Clamp V / toggle % off
+    Bottom / value % 0
+    Top / value % 1
+Segments:
+  Length / value % 14
+  Cross-section / value % 20
+  Pack / value % 1.11
+  Profile / curveonly
+Light Seam Reduction:
+  Normal profile / curveonly
+Roughness:
+  Amount / value % 0.8
+  Amount Variance / value % -0.25
+  Rough profile / curveonly
+  Horiz freq / value % 6.5
+  Vert freq / value % 28
+  Gnarl / value / 0
+  Gnarl profile / curveonly
+Flares:
+  Number / value % 6
+  Balance / value % 1
+  Radial Distance / value % 1.25
+  Radial Distance Variance / value % -0.3
+  Radial Exp / value % 1
+  Radial Influence / value % 30
+  Radial Influence Variance / value % 5
+  Length Distance / value % 0.15
+  Length Distance Variance / value % 0
+  Length Exp / value % 8
+
+
+Branches
+--------
+
+Level:
+  Level / selector % Level 1 % Not in spt
+  Edit / menu
+  Root level / selector % 3
+Generation:
+  First / value % 30
+  Last / value % 100
+  Freq / value % 45
+  Depth / selector % 0
+  Dist(%) / value % 0
+  Profile / curveonly % (0,0.9)-->(1,0.9)
+  Fork: / toggle % off
+    Bias / value % 1
+    Angle / value % 0
+    Limit / value % 1
+Shape Definition:
+  Length / curve % 20 40 5
+  Radius / curve % 0.8 1.7 0.3
+  Start Angle / curve % 25 60 10
+  Flexibility / curve % 40 60 0
+  Gravity / curve % 0.5 0.8 0.05
+  Disturbance / curvevar % 0 100 60
+  Radius Profile / curvevar % 0 100 0
+  Flexibility Profile / curvevar % 0 100 0
+  Gravity Profile / curvevar % 0 100 0
+Texture Coordinates:
+  Layer / selector % Detail
+  Sync to diffuse / toggle % on
+  U tiling / value % 5
+  Absolute [U]/ toggle % on
+  U offset / value % 0
+  V tiling / value % 2
+  Absolute [V]/ toggle % off
+  V offset / value % -0.12
+  Random V offset / toggle % on
+  Twist / value % 1.5
+  Clamp U / toggle % off
+  Left / value % 0
+  Right / value % 1
+  Clamp V / toggle % off
+  Bottom / value % 0
+  Top / value % 1
+Segments:
+  Length / value % 1
+  Keep% (Length) / value
+  Pack / value
+  Cross-section / value % 3
+  Keep% (Cross-section) / value
+  Profile / curveonly
+Light Seam Reduction:
+  Bias / curveonly
+  Normal profile / curveonly
+Roughness:
+  Amount / value
+  Amount Variance / value
+  Rough profile / curveonly
+  Horiz freq / value
+  Vert freq / value
+  Gnarl / value
+  Unison / toggle
+  Gnarl profile / curveonly
+Flares:
+  Number / value
+  Balance / value
+  Radial distance / value
+  Radial distance variance / value
+  Radial exponent / value
+  Radial influence / value
+  Radial influence variance / value
+  Length distance / value
+  Length distance variance / value
+  Length exponent / value
+
+
+Fronds
+------
+
+Generation:
+  Enabled / toggle % on
+  Level / selector % 2
+  Rules:
+    Distance % / value % 0
+    Depth / selector % 0
+    Above condition / selector % Enabled
+    Below condition / selector % Enabled
+Texture Maps:
+  Frond # / selector % 1
+  Add, Delete buttons
+  Frond texture as image
+  Layer / selector % Normal
+  Clear this layer / button
+  Filename / file selector % BostonFernFrond_Normals.tga/ 
+  Frond size factor / value % 0.9
+  Min offset angle / value % 15
+  Max offset angle / value % 45
+Blades, Extruded Profile / radio button % Blades is selected
+Blades:
+  Number of blades per frond / value % 1
+Extruded Profile:
+  Segment / value % 5
+  Profile / curve % 0 100 0
+Length Segment Override
+  Enabled / toggle
+  Value / value % 2
+
+
+Leaves
+------
+
+Generation:
+  First / value
+  Last / value
+  Freq / value
+  Distance(%) / value
+  Depth / Selector
+  Freq profile / curveonly
+Placement:
+  Distance / curve
+  Collision detection / selector
+  Tolerance / value
+  Blossom Rules:
+    Distance(%) / value
+    Depth / selector
+    Weight(%) / value
+Texture Maps:
+  Texture # / selector % 1
+  Add, Delete buttons
+  Make Blossom / toggle % off
+  Layer / selector
+  Clear this layer / button
+  Leaves texture as image
+  Texture filename / file selector
+  Apply to all: / toggle
+    Size / value % 8
+    Rotate / value
+    Hang(%) / value
+    Orientation Var(%) / value
+    Color / selector
+Use Mesh: / toggle
+  List of toggles
+  Import... / button
+  Rename... / button
+  Export... / button
+  Delete / button
+
+
+Global
+------
+
+Seeds:
+  Main / value % 913654
+  Randomize / button % for Main seed
+  Flare / value % 15090
+  Randomize / button % for Flare seed
+Size and Orientation:
+  Size / value % 85
+  Variance / value % 10
+  Angle / value % 31
+  Scale collision objects / rotary knob
+Floor: / toggle % on
+  Level / selector % 1
+  Value / value % 0.1
+  Exponent / value % 2
+  Bias / value % 0.5
+Cluster Support:
+  First level with visible branches / selector % 0
+Composite Maps:
+  Layer / selector % Diffuse
+  Clear this layer / button
+  Composite map as image
+  Composite map filename / file selector % SampleCompositeMap_diffuse.dds
+Separate Billboard Maps:
+  Layer / selector % Normal
+  Clear this layer / button
+  Map as image
+  Map filename / file selector
+Shadow Map:
+  Remove shadow map / button
+  Shadow map as image
+  Shadow map filename / file selector
+Bounding Box:
+  Minimum X Y Z / greyvalues
+  Maximum X Y Z / greyvalues
+
+
+Wind
+----
+
+Enabled: / toggle % off
+  Windy leaves / toggle % on
+  Windy branches / toggle % on
+Branch Weighting Level:
+  First level receiving wind effects / selector % 0
+  Propagate flexibility to higher levels / toggle % on
+SpeedWind Support
+  Leaf rock angle scalar / value % 0.2
+  Leaf rustle angle scalar / value % 0.4
+  Edit SpeedWind parametrs... / button
+  Default to custom SpeedWind file / toggle % off
+  / SpeedWind filename selector % empty
+
+
+LOD
+---
+
+Leaves/Billboard:
+  Transition method / selector % Smooth
+  Num LODs / value % 3
+  Size(%) / value % 45
+  Exponent / value % 1
+  Radius / value % 0.09
+  Leaf transition(%) / value % 30
+  Reduction(%) / value % 25
+  Billboard transition(%) / value
+Branches:
+  Num LODs / value % 3
+  Fuzziness(%) / value % 0
+  Min vol(%) / value % 30
+  Max vol(%) / value % 100
+  Retention(%) / value % 0
+  Fade distance / value
+Fronds:
+  Num LODs / value % 3
+  Fuzziness(%) / value % 100
+  Min area(%) / value % 25
+  Max area(%) / value % 100
+  Retention(%) / value % 5
+  Fade distance / value
+  Apply fading to extruded fronds / toggle
+  Minimum extrusion segments:
+    Length / value % 3
+    Profile / value % 1
+Compute LOD, Manual LOD / radio buttons % Manual LOD selected
+Compute LOD:
+  Near distance: Height factor, Actual value / value value % 1.1701 100.0
+  Far distance: Height factor, Actual value / value value % 12.872 1100.0
+Manual LOD:
+  / slider (low to high) % value is at maximum high % XXXX FORMAT
+  "<" "|>" ">" buttons    // controls the preview display?
+  Show LOD indicator / toggle % on
+  Show second tree / toggle % on
+
+
+Lighting
+--------
+
+Materials:
+  Branches // ambient,diffuse,specular,emissive,shininess,opacity / or preset
+  Leaves // ambient,diffuse,specular,emissive,shininess,opacity / or preset
+  Fronds // ambient,diffuse,specular,emissive,shininess,opacity / or preset
+Branch Lighting:
+  Lighting style / selector % Dynamic
+Leaf Lighting:
+  Lighting style / selector % Dynamic
+  Static lighting style / selector % Basic
+  Simulate shadows / toggle
+  Lighting adjust / value % 0.25
+  Smoothing Flag / toggle % on
+  Smoothing / value % 30
+  Dimming Flag / toggle % on
+  Dimming(%) / toggle value % on 45
+  Dimming depth / selector % 0
+Frond Lighting:
+  Lighting style / selector % Dynamic
+Use standard SpeedTree shaders: / toggle % on
+  3D light scalars:
+    Global / slider value % 2.833
+    Branch / slider value % 1.5
+    Frond / slider value % 0.755
+    Leaf / slider value % 1
+    Ambient / slider value % 0.566
+  Billboard light scalars
+    Bright side / slider value % 1.5
+    Dark side / slider value % 1.5
+    Ambient / slider value % 1.5
+
+
+Material chooser
+----------------
+
+Diffuse Color
+Ambient Color
+Specular Color
+Emissive Color
+Shine % XXXX FORMAT verify
+Opacity % XXXX FORMAT is there a way to modify the value?
+
+Group % XXXX FORMAT
+Lights % XXXX FORMAT
+Background % XXXX FORMAT
+
+
+
+====================================================
+
+SpeedWind edit values are not stored to spt file.
+Default values are in SpeedWind.ini.
+
+
+
+
+
+#if 0
+// They are now in the trunk and branches tabs.
+
+// Check!! Not in the tab!
+Flares
+------
+
+Branch Level / selector % Level 0 (trunk)
+Vertex Packing:
+  Exponent / value % 3  (< 1 pack tip, = 1 pack linear, > 1 pack base)
+Flare Parameters:
+  Number / value % 4
+  Balance / value % 0.75
+  Radial influence / value variance % 40 10
+  Radial distance / value variance % 2 0.25
+  Radial exponent / value % 0.5
+  Length distance / value variance % 0.3 0.1
+  Length exponent / value % 4
+#endif
+
+
+//// Check all below.
+
+Export Composite Leaf/Frond/Billboard Map
+=========================================
+
+SPT Files:
+  list of spt files with "Add...", "Remove", "Clear", "Copy", "Paste",
+  "Paste All"
+  Generate Billboards: / toggle % on
+    Size (pixels) / value % 156
+    Count / value % 10
+    360 Degrees / toggle % on
+    Oversampling / value (value selector) % 3
+    LOD Level / value % 1
+    Horizontal / toggle % off
+    Streak colors for <value> pixels around edges / toggle value % on 25
+  Options:
+    Copy maps to folder / toggle % on
+    Include mipmaps / toggle % off
+    Export data file / toggle % on
+    Uniform LOD noise / toggle % on
+    Texture map border / value % 3
+    Composite map filename / string % "CompositeMap"
+  Preview / image of the composition (color coded, edge type coded)
+  Composite map resolution / value value % 1024 2048
+  Configurations / menu
+  Create in Folder... / fileselector
+  Cancel / button
+
+
+Export Composite Shadow Map
+===========================
+
+SPT Files:
+  list of spt files with "Add...", "Remove", "Clear", "Copy", "Paste",
+  "Paste All"
+  Settings:
+    Size (pixels) / value % 1024
+    Density / value % 0.6
+    Oversampling / value (value menu) % 1
+  Projection Direction:
+    Camera, Light, Custom radio buttons % Light selected
+    Camera x,y,z / value value value % 0 1 0
+    Light  x,y,z / value value value % -0.4681 0.48053 -0.7415
+    Custom x,y,z / value value value % 0 0 0
+  Options:
+    Texture map border / value % 5
+    Copy maps to folder / toggle % on
+    Composite map filename / string % "CompositeShadowMap"
+  Preview / image of the composition (color coded, edge type coded)
+  Composite map resolution / value value % 1024 2048
+  Configurations / menu
+  Create in Folder... / fileselector
+  Cancel / button
+
+
+Export Self-Shadow Image
+========================
+
+Long dimension / value % 512
+Shadow density / value % 1
+Oversampling / value (value selector) % 2
+Projection Direction:
+  Camera, Light, Custom radio buttons % Camera selected
+  Camera x,y,z / value value value % 7.11684 0.99998 0.00523
+  Light  x,y,z / value value value % -0.5163 0.51752 -0.6823
+  Custom x,y,z / value value value % 1 0 0
+Choose Filename... / fileselector
+Cancel / button
+
+
+Export Image
+============
+
+Size / value % 256
+Oversampling / value (value selector) % 3
+Streak colors for <value> pixels around edges / toggle value % off 25
+Crop image with a <value> pixel border / toggle value % on 5
+Choose Filename... / fileselector
+Cancel / button
+
+
+Curve
+=====
+
+Display showing the curve, control points, and variance curves
+Add, Delete, Move tools
+Two display style toggles
+Minimum / value % 0
+Maximum / value % 100
+Variance / value % 10
+Segments / value % 2
+Curve type / selector % Custom
+Cyclical / toggle % off
+OK / button
+Cancel / button
+
+
+Embedded Texture Coordinates
+============================
+
+View / selector % Leaf Texture Coordinate
+Index / selector % 0
+Add, Remove, Copy all, Paste All / buttons
+(0.75,0.75)  (1,0.75)    / 8 x value % as shown
+Tex Coord 1  Tex Coord 0 / 4 x fixed labels
+Tex Coord 2  Tex Coord 3
+(0.75,0.625) (1,0.625)
+OK / button
+Cancel / button
+
+
+Embedded Filenames
+==================
+
+Branch Map / string % LondonPlaneBarkMipMaps.dds
+Leaf Map selector, string % Leaf map 0, LondonPlaneLeaves_1.tga
+Frond Map selector, string % Frond map 0, LondonPlaneFrondBranches.tga
+Composite Map / string % CompositeMap.tga
+Self-shadow Map / string % LondonPlaneSelfShadow.tga
+Close / button
+
+
+=============================================================
+
+
+Flares related?
+distance = (segmentno / TotalSegments)^Exponent
+
